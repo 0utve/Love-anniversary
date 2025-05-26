@@ -2,19 +2,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Love Anniversary</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Love Anniversary</title>
+<style>
+  /* الخلفية الوردية الضبابية مع القلوب المتحركة */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffc0cbaa, #ff69b4aa);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* قلوب وردية متحركة */
+  .heart {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: #ff69b4cc;
+    transform: rotate(-45deg);
+    animation: floatUp 6s linear infinite;
+    border-radius: 10px 10px 0 0;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #ff69b4cc;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -15px;
+    left: 0;
+  }
+  .heart::after {
+    top: 0;
+    left: 15px;
+  }
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) rotate(-45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+
+  /* نكرر القلوب بأحجام ومواقع مختلفة */
+  .heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+  }
+  .heart:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+    width: 40px;
+    height: 40px;
+  }
+  .heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+  }
+  .heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 1s;
+    width: 25px;
+    height: 25px;
+  }
+  .heart:nth-child(5) {
+    left: 85%;
+    animation-delay: 3s;
+    width: 35px;
+    height: 35px;
+  }
+
+  /* العنوان في إطار وردي منحني */
+  .title-frame {
+    max-width: 600px;
+    margin: 40px auto 20px auto;
+    padding: 20px 30px;
+    background-color: #ff69b4cc;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 0 20px #ff69b4aa;
+  }
+
+  /* العداد في إطار */
+  .countdown-frame {
+    background: #ff9ab8cc;
+    padding: 25px 30px;
+    border-radius: 25px;
+    box-shadow: 0 0 15px #ff6f95cc;
+    max-width: 420px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    justify-content: space-around;
+    color: #660029;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  .countdown-item {
+    text-align: center;
+  }
+
+  .countdown-label {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  /* الرسالة */
+  .message {
+    max-width: 700px;
+    margin: 20px auto 50px auto;
+    padding: 20px 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #330014;
+    font-family: 'Georgia', serif;
+    white-space: pre-wrap; /* يحافظ على الفراغات والأسطر */
+  }
+
+  /* لتمكين التمرير */
+  html, body {
+    height: 100%;
+    overflow-y: auto;
+  }
+</style>
 </head>
 <body>
-  <div class="background">
-    <div class="hearts"></div>
-    <div class="container">
-      <div id="counter" class="counter"></div>
-      <a href="message.html" class="message-button">Read Our Message</a>
-    </div>
+
+<!-- قلوب متحركة -->
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+
+<!-- العنوان -->
+<div class="title-frame">
+  A Year of Love and Memories
+</div>
+
+<!-- العداد -->
+<div class="countdown-frame" aria-label="Countdown timer">
+  <div class="countdown-item">
+    <div id="days">0</div>
+    <div class="countdown-label">Days</div>
   </div>
-  <script src="script.js"></script>
+  <div class="countdown-item">
+    <div id="hours">0</div>
+    <div class="countdown-label">Hours</div>
+  </div>
+  <div class="countdown-item">
+    <div id="minutes">0</div>
+    <div class="countdown-label">Minutes</div>
+  </div>
+  <div class="countdown-item">
+    <div id="seconds">0</div>
+    <div class="countdown-label">Seconds</div>
+  </div>
+</div>
+
+<!-- الرسالة -->
+<div class="message">
+My Love,
+
+Today marks one year since we started this beautiful journey together — 365 days of laughter, growth, and unforgettable memories. I can't express how grateful I am to have you in my life. You’ve brought so much light, love, and peace to my heart.
+
+Every moment with you feels like a blessing. Your smile, your kindness, your presence — they’ve made this past year the best of my life. Thank you for being by my side, for believing in us, and for loving me the way you do.
+
+As we celebrate this special day, I just want you to know: I love you more deeply than ever, and I’m excited for all the years to come. Let’s keep building our story, hand in hand.
+
+Forever yours,  
+Sidahmed
+</div>
+
+<script>
+// عداد تنازلي
+
+function updateCountdown() {
+  const anniversaryDate = new Date('2024-05-27T00:00:00');
+  const now = new Date();
+  const diff = now - anniversaryDate;
+
+  const totalSeconds = Math.floor(diff / 1000);
+
+  const days = Math.floor(totalSeconds / (3600 * 24));
+  const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById('days').textContent = days;
+  document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+  document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+  document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
 </body>
 </html>
