@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One Year Together</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0') no-repeat center center/cover;
+      backdrop-filter: blur(5px);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    #countdown {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .message {
+      font-size: 1.1em;
+      line-height: 1.7em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>One Year Together</h1>
+    <div id="countdown"></div>
+    <div class="message">
+      "A year has passed, but it’s not just days, it’s moments made with you filled with love.<br><br>
+      In every smile, in every word, you have always been the most beautiful part of my day.<br><br>
+      Since the first time we talked, I knew something beautiful had begun.<br><br>
+      Now, after a year, I’m sure I want to live only with you, and in you.<br><br>
+      Every memory we shared, every dream we planned, is engraved in my heart.<br><br>
+      I hope this year is just the beginning, and that we continue this journey together, year after year, heart to heart.<br><br>
+      I love you today, tomorrow, and always."
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/01/audio_4b0e027948.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const startDate = new Date("2024-05-27T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").innerText =
+        `It has been ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds since our journey began.`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
