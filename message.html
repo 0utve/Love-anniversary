@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Message</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .message-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .message-text {
+      font-size: 1.4rem;
+      margin-top: 20px;
+    }
+    audio {
+      margin-top: 30px;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="hearts"></div>
+    <div class="message-page">
+      <h2>To the love of my life</h2>
+      <p class="message-text">
+        One year ago, on this day, something beautiful began between us. Every moment with you has been a treasure, and I can't wait to make many more memories by your side.
+      </p>
+      <audio controls autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+</body>
+</html>

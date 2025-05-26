@@ -1,159 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Love Anniversary</title>
-<style>
-  body, html {
-    margin: 0; padding: 0; height: 100%;
-    font-family: Arial, sans-serif;
-    background: #ffe6f0;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .blur-background {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
-    filter: blur(8px) brightness(0.7);
-    z-index: -2;
-  }
-
-  .heart {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: pink;
-    transform: rotate(-45deg);
-    animation: floatUp linear infinite;
-    opacity: 0.8;
-    border-radius: 3px 3px 0 0;
-  }
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: pink;
-    border-radius: 50%;
-  }
-  .heart::before {
-    top: -10px;
-    left: 0;
-  }
-  .heart::after {
-    left: 10px;
-    top: 0;
-  }
-  @keyframes floatUp {
-    0% {
-      transform: translateY(100vh) rotate(-45deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(-10vh) rotate(-45deg);
-      opacity: 0;
-    }
-  }
-
-  .container {
-    position: relative;
-    z-index: 1;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    padding: 0 20px;
-  }
-
-  .counter-icon {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    background: rgba(255, 192, 203, 0.6);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.3rem;
-    font-weight: bold;
-    color: #900048;
-    box-shadow: 0 0 20px rgba(255, 192, 203, 0.8);
-    margin-bottom: 20px;
-  }
-
-  .message {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #900048;
-    text-shadow: 1px 1px 4px #fff;
-    max-width: 320px;
-  }
-
-  @media (max-width: 450px) {
-    .counter-icon {
-      width: 95px;
-      height: 95px;
-      font-size: 1.9rem;
-    }
-    .message {
-      font-size: 1.4rem;
-      max-width: 280px;
-    }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Anniversary</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="blur-background"></div>
-
-<script>
-  const numHearts = 25;
-  for(let i=0; i<numHearts; i++) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (5 + Math.random() * 7) + 's';
-    heart.style.animationDelay = (Math.random() * 15) + 's';
-    document.body.appendChild(heart);
-  }
-</script>
-
-<div class="container">
-  <div class="counter-icon" id="counter">0</div>
-  <div class="message">
-    Like today but last year,<br />
-    Our journey began and changed my world forever.
+  <div class="background">
+    <div class="hearts"></div>
+    <div class="container">
+      <div id="counter" class="counter"></div>
+      <a href="message.html" class="message-button">Read Our Message</a>
+    </div>
   </div>
-</div>
-
-<script>
-const startDate = new Date('2024-05-27T00:00:00');
-
-function updateCounter() {
-  const now = new Date();
-  const diff = now - startDate;
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  document.getElementById('counter').textContent = days;
-}
-
-updateCounter();
-setInterval(updateCounter, 1000 * 60 * 60);
-</script>
-
-<audio autoplay loop hidden>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7f5d0bc888.mp3" type="audio/mp3" />
-  Your browser does not support the audio element.
-</audio>
-
+  <script src="script.js"></script>
 </body>
 </html>
