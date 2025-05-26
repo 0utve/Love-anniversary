@@ -1,50 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Message</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Love Message</title>
   <style>
-    .message-page {
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('https://i.imgur.com/9ZQx6cD.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 192, 203, 0.3);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
-      background: rgba(0,0,0,0.6);
-      color: white;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
       padding: 20px;
-      animation: fadeIn 2s ease-in-out;
+      color: #fff;
     }
+
+    .message-title-container {
+      background: rgba(255, 182, 193, 0.3);
+      border: 2px solid #ffb6c1;
+      border-radius: 15px;
+      padding: 15px 40px;
+      margin-bottom: 20px;
+    }
+
+    .message-title {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #ff69b4;
+      margin: 0;
+    }
+
+    .hearts-container {
+      margin-top: 15px;
+    }
+
+    .heart {
+      font-size: 2em;
+      color: #ff1493;
+      margin: 0 8px;
+      animation: beat 1.2s infinite;
+      display: inline-block;
+    }
+
+    .heart:nth-child(2) { animation-delay: 0.4s; }
+    .heart:nth-child(3) { animation-delay: 0.8s; }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
     .message-text {
-      font-size: 1.4rem;
-      margin-top: 20px;
-    }
-    audio {
-      margin-top: 30px;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      font-size: 1.3em;
+      font-weight: bold;
+      max-width: 700px;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <div class="background">
-    <div class="hearts"></div>
-    <div class="message-page">
-      <h2>To the love of my life</h2>
-      <p class="message-text">
-        One year ago, on this day, something beautiful began between us. Every moment with you has been a treasure, and I can't wait to make many more memories by your side.
-      </p>
-      <audio controls autoplay loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-      </audio>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="message-title-container">
+      <h1 class="message-title">A Year of Us: My Heartfelt Message</h1>
+      <div class="hearts-container">
+        <span class="heart">❤</span>
+        <span class="heart">❤</span>
+        <span class="heart">❤</span>
+      </div>
     </div>
+    <p class="message-text">
+      My Love,<br><br>
+      Today marks one year since we started this beautiful journey together — 365 days of laughter, growth, and unforgettable memories. I can't express how grateful I am to have you in my life. You’ve brought so much light, love, and peace to my heart.<br><br>
+      Every moment with you feels like a blessing. Your smile, your kindness, your presence — they’ve made this past year the best of my life. Thank you for being by my side, for believing in us, and for loving me the way you do.<br><br>
+      As we celebrate this special day, I just want you to know: I love you more deeply than ever, and I’m excited for all the years to come. Let’s keep building our story, hand in hand.<br><br>
+      Forever yours,<br>
+      <strong>Sidahmed</strong>
+    </p>
   </div>
 </body>
 </html>
